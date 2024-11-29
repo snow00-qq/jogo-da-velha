@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha - Estilo Moderno</title>
+    <script type="text/javascript" src="velha.js"></script>
+    <style>
+        /* Estilos globais */
+        body {
+            background-color: #222;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #ffcc00;
+        }
+
+        #board {
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        td {
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            background-color: #444;
+            border: 2px solid #333;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        td:hover {
+            background-color: #555;
+        }
+
+        .player-turn {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #ffcc00;
+        }
+
+        input[type="number"], button {
+            font-size: 18px;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #333;
+            border: 2px solid #666;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        input[type="number"]:focus, button:hover {
+            background-color: #555;
+        }
+
+        button {
+            width: 120px;
+        }
+
+        .status-message {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffcc00;
+            margin-top: 20px;
+        }
+
+        /* Adicionando responsividade */
+        @media (max-width: 600px) {
+            td {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            input[type="number"], button {
+                font-size: 16px;
+                padding: 8px;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body onload="inicia()">
+    <h1>Jogo da Velha</h1>
+    <div id="board"></div>
+    <div class="player-turn">Vez do Jogador: <span id="current-player">1 (X)</span></div>
+    <div>
+        Linha: <input id="lin" type="number" min="1" max="3" />
+        Coluna: <input id="col" type="number" min="1" max="3" />
+        <button onclick="jogar()">Marcar</button>
+    </div>
+    <div class="status-message" id="aviso"></div>
+</body>
+</html>
